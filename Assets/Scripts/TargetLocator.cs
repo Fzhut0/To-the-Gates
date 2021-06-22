@@ -20,7 +20,7 @@ public class TargetLocator : MonoBehaviour
 
     void AimWeapon()
     {
-
+        // add attack here later
         weapon.LookAt(target);
     }
 
