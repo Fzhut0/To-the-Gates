@@ -9,6 +9,8 @@ public class PlaceTower : MonoBehaviour
     [SerializeField] Material originalMaterial;
     [SerializeField] Material overMaterial;
 
+    [SerializeField] int cost = 50;
+
     MeshRenderer mRenderer;
     [SerializeField] bool isPlaceable = true;
 
@@ -36,9 +38,11 @@ public class PlaceTower : MonoBehaviour
 
     void PutTower()
     {
-        if (isPlaceable == true)
+        ResourcesBank bank = FindObjectOfType<ResourcesBank>();
+        if (isPlaceable == true && bank.CurrentBalance >= cost)
         {
             Instantiate(towerPrefab.gameObject, transform.position, Quaternion.identity);
+            bank.Withdraw(cost);
             Instantiate(placedPrefab.gameObject, transform.position, Quaternion.identity);
         }
         isPlaceable = false;

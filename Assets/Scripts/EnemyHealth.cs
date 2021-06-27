@@ -8,6 +8,8 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] int maxHitPoints = 2;
     [SerializeField] int difficultyRamp = 1;
 
+    Enemy enemy;
+
     int currentHitPoints = 0;
 
     private void Awake()
@@ -19,13 +21,21 @@ public class EnemyHealth : MonoBehaviour
         ProcessHit();
     }
 
+    private void Start()
+    {
+        enemy = GetComponent<Enemy>();
+    }
+
     void ProcessHit()
     {
         currentHitPoints--;
+
         if (currentHitPoints <= 0)
         {
             gameObject.SetActive(false);
+            enemy.RewardResources();
             maxHitPoints += difficultyRamp;
+
         }
     }
 }
