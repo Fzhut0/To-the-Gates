@@ -6,9 +6,9 @@ public class EnemyHealth : MonoBehaviour
 {
 
     [SerializeField] int maxHitPoints = 2;
+    [SerializeField] int difficultyRamp = 1;
 
     int currentHitPoints = 0;
-    // add rampupdifficulty
 
     private void Awake()
     {
@@ -25,7 +25,7 @@ public class EnemyHealth : MonoBehaviour
         if (currentHitPoints <= 0)
         {
             gameObject.SetActive(false);
-            // add rampup difficulty
+            maxHitPoints += difficultyRamp;
         }
     }
 }
