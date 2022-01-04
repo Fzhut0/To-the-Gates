@@ -42,9 +42,6 @@ public class CameraMovement : MonoBehaviour
         }
 
 
-
-
-
         if (Input.GetKey(KeyCode.W))
         {
             pos.x -= moveSpeed * Time.deltaTime;

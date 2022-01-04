@@ -6,60 +6,112 @@ public class TargetLocator : MonoBehaviour
 {
     [SerializeField] Transform weapon;
     [SerializeField] float range = 15f;
-    [SerializeField] float shootTimer = 10f;
 
     [SerializeField] ParticleSystem particleShoot;
+    GameObject mene;
+    Enemy targetEnemy;
 
     Transform target;
 
+    public string enemyTag = "Enemy";
 
+
+
+    private void Start()
+    {
+
+        var particleEmission = particleShoot.emission;
+        particleEmission.enabled = false;
+        mene = GameObject.FindGameObjectWithTag("Enemy");
+        InvokeRepeating("FindClosestTarget", 0f, 0.5f);
+
+    }
 
     void Update()
     {
-        FindClosestTarget();
+
         AimWeapon();
+
+        IncreaseRange();
+
     }
 
-
-    void AimWeapon()
+    private void AimWeapon()
     {
-        float targetDistance = Vector3.Distance(transform.position, target.position);
+        if (target != null)
+        {
+            float targetDistance = Vector3.Distance(transform.position, target.position);
 
-        weapon.LookAt(target);
-        if (targetDistance < range)
-        {
-            Shoot(true);
-        }
-        else
-        {
-            Shoot(false);
+            weapon.LookAt(target);
+            if (targetDistance < range)
+            {
+                Attack(true);
+            }
+            else
+            {
+                Attack(false);
+            }
         }
     }
 
-    void Shoot(bool isActive)
+    private void Attack(bool isActive)
     {
         var particleEmission = particleShoot.emission;
-
         particleEmission.enabled = isActive;
     }
 
+
     void FindClosestTarget()
     {
-        Enemy[] enemies = FindObjectsOfType<Enemy>();
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         Transform closestTarget = null;
         float maxDistance = Mathf.Infinity;
 
-        foreach (Enemy enemy in enemies)
+        foreach (GameObject enemy in enemies)
         {
             float targetDistance = Vector3.Distance(transform.position, enemy.transform.position);
 
             if (targetDistance < maxDistance)
             {
-                closestTarget = enemy.transform;
                 maxDistance = targetDistance;
+                closestTarget = enemy.transform;
+
             }
         }
 
-        target = closestTarget;
+        if (closestTarget != null && maxDistance <= range)
+        {
+            target = closestTarget.transform;
+            targetEnemy = closestTarget.GetComponent<Enemy>();
+        }
+        else
+        {
+            target = null;
+        }
+
+
+    }
+
+    void IncreaseRange()
+    {
+        int morale = FindObjectOfType<MoraleBalance>().CurrentMorale;
+
+        switch (morale)
+        {
+            case 55:
+                range = 20f;
+                break;
+            case 60:
+                range = 30f;
+                break;
+            default:
+                break;
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 }
