@@ -8,10 +8,13 @@ public class TargetLocator : MonoBehaviour
     [SerializeField] float range = 15f;
 
     [SerializeField] ParticleSystem particleShoot;
-    GameObject mene;
+
     Enemy targetEnemy;
 
     Transform target;
+    GameObject actualTarget;
+    [SerializeField] Vector3 tarHeight;
+
 
     public string enemyTag = "Enemy";
 
@@ -22,7 +25,8 @@ public class TargetLocator : MonoBehaviour
 
         var particleEmission = particleShoot.emission;
         particleEmission.enabled = false;
-        mene = GameObject.FindGameObjectWithTag("Enemy");
+
+        actualTarget = GameObject.FindGameObjectWithTag("ActualTarget");
         InvokeRepeating("FindClosestTarget", 0f, 0.5f);
 
     }
@@ -42,7 +46,7 @@ public class TargetLocator : MonoBehaviour
         {
             float targetDistance = Vector3.Distance(transform.position, target.position);
 
-            weapon.LookAt(target);
+            weapon.LookAt(actualTarget.transform.position);
             if (targetDistance < range)
             {
                 Attack(true);
