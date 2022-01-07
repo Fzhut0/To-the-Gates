@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] [Range(0, 50)] int poolSize = 5;
     [SerializeField] [Range(0.1f, 30f)] float spawnTime = 1f;
 
-    GameObject[] pool;
+    public GameObject[] pool;
 
     private void Awake()
     {
@@ -37,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(spawnTime);
         }
     }
-    void EnableObjectInPool()
+    public void EnableObjectInPool()
     {
         for (int i = 0; i < pool.Length; i++)
         {

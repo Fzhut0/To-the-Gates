@@ -12,8 +12,8 @@ public class TargetLocator : MonoBehaviour
     Enemy targetEnemy;
 
     Transform target;
-    GameObject actualTarget;
-    [SerializeField] Vector3 tarHeight;
+    GameObject mene;
+
 
 
     public string enemyTag = "Enemy";
@@ -24,9 +24,10 @@ public class TargetLocator : MonoBehaviour
     {
 
         var particleEmission = particleShoot.emission;
+        particleShoot.Play();
         particleEmission.enabled = false;
 
-        actualTarget = GameObject.FindGameObjectWithTag("ActualTarget");
+
         InvokeRepeating("FindClosestTarget", 0f, 0.5f);
 
     }
@@ -46,13 +47,14 @@ public class TargetLocator : MonoBehaviour
         {
             float targetDistance = Vector3.Distance(transform.position, target.position);
 
-            weapon.LookAt(actualTarget.transform.position);
-            if (targetDistance < range)
+            weapon.LookAt(target);
+            if (targetDistance < range && targetEnemy.enabled)
             {
                 Attack(true);
             }
             else
             {
+
                 Attack(false);
             }
         }
@@ -103,10 +105,10 @@ public class TargetLocator : MonoBehaviour
         switch (morale)
         {
             case 55:
-                range = 20f;
+                range = 30f;
                 break;
             case 60:
-                range = 30f;
+                range = 35f;
                 break;
             default:
                 break;

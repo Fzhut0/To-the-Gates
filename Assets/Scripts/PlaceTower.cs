@@ -28,12 +28,18 @@ public class PlaceTower : MonoBehaviour
 
     void OnMouseOver()
     {
-        mRenderer.material = overMaterial;
+        if (isPlaceable == true)
+        {
+            mRenderer.material = overMaterial;
+        }
     }
 
     private void OnMouseExit()
     {
-        mRenderer.material = originalMaterial;
+        if (isPlaceable == true)
+        {
+            mRenderer.material = originalMaterial;
+        }
     }
 
     void PutTower()
