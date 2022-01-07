@@ -28,7 +28,8 @@ public class PlaceTower : MonoBehaviour
 
     void OnMouseOver()
     {
-        if (isPlaceable == true)
+        ResourcesBank bank = FindObjectOfType<ResourcesBank>();
+        if (isPlaceable == true && bank.CurrentBalance >= cost)
         {
             mRenderer.material = overMaterial;
         }
