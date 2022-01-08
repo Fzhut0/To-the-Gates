@@ -1,20 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 [RequireComponent(typeof(Enemy))]
 public class EnemyMover : MonoBehaviour
 {
     [SerializeField] List<PlaceTower> path = new List<PlaceTower>();
     [SerializeField] [Range(0f, 5f)] float speed = 1f;
+    [SerializeField] float range = 3f;
 
     EnemyHealth health;
     Enemy enemy;
+    Fence fence;
+    Animator attack;
+
+
+    public string fenceTag = "Fence";
 
     private void OnEnable()
     {
 
         FindPath();
         ReturnToStart();
+        GetComponent<Animator>().SetBool("RUN", true);
         StartCoroutine(FollowPath());
     }
 
@@ -22,6 +30,7 @@ public class EnemyMover : MonoBehaviour
     {
         health = GetComponent<EnemyHealth>();
         enemy = GetComponent<Enemy>();
+
     }
 
     private void Update()
@@ -31,6 +40,8 @@ public class EnemyMover : MonoBehaviour
             enemy.enabled = true;
         }
     }
+
+
 
     void FindPath()
     {
@@ -63,6 +74,12 @@ public class EnemyMover : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        GetComponent<Animator>().SetBool("RUN", false);
+        GetComponent<Animator>().SetBool("Attack", true);
+    }
+
 
 
     IEnumerator FollowPath()
@@ -73,7 +90,26 @@ public class EnemyMover : MonoBehaviour
             Vector3 endPosition = placetower.transform.position;
             float travelPercent = 0f;
 
+
             transform.LookAt(endPosition);
+
+
+
+
+
+            while (GetComponent<Animator>().GetBool("Attack"))
+            {
+                GameObject fence = GameObject.FindGameObjectWithTag(fenceTag);
+                // float fenceDistance = Vector3.Distance(transform.position, fence.transform.position);
+
+                if (fence == null)
+                {
+                    GetComponent<Animator>().SetBool("Attack", false);
+                    GetComponent<Animator>().SetBool("RUN", true);
+
+                }
+                yield return null;
+            }
 
 
             while (travelPercent < 1f)
@@ -82,6 +118,8 @@ public class EnemyMover : MonoBehaviour
                 transform.position = Vector3.Lerp(startPosition, endPosition, travelPercent);
                 yield return new WaitForEndOfFrame();
             }
+
+
         }
         FinishPath();
     }
