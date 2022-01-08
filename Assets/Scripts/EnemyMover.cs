@@ -89,10 +89,9 @@ public class EnemyMover : MonoBehaviour
             Vector3 startPosition = transform.position;
             Vector3 endPosition = placetower.transform.position;
             float travelPercent = 0f;
-
+            //  GameObject fence = GameObject.FindGameObjectWithTag(fenceTag);
 
             transform.LookAt(endPosition);
-
 
 
 
@@ -100,15 +99,21 @@ public class EnemyMover : MonoBehaviour
             while (GetComponent<Animator>().GetBool("Attack"))
             {
                 GameObject fence = GameObject.FindGameObjectWithTag(fenceTag);
-                // float fenceDistance = Vector3.Distance(transform.position, fence.transform.position);
 
+                //  if (fence != null)
+                //  {
+                // float fenceDistance = Vector3.Distance(transform.position, fence.transform.position);
+                //  yield return new WaitForEndOfFrame();
                 if (fence == null)
                 {
                     GetComponent<Animator>().SetBool("Attack", false);
                     GetComponent<Animator>().SetBool("RUN", true);
-
                 }
-                yield return null;
+
+
+                //   }
+
+                yield return new WaitForEndOfFrame();
             }
 
 
