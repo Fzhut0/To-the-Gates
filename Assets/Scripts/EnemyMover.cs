@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations;
 [RequireComponent(typeof(Enemy))]
 public class EnemyMover : MonoBehaviour
 {
@@ -74,11 +73,11 @@ public class EnemyMover : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        GetComponent<Animator>().SetBool("RUN", false);
-        GetComponent<Animator>().SetBool("Attack", true);
-    }
+    //   private void OnTriggerEnter(Collider other)
+    //   {
+    //     GetComponent<Animator>().SetBool("RUN", false);
+    //     GetComponent<Animator>().SetBool("Attack", true);
+    //  }
 
 
 
@@ -89,38 +88,40 @@ public class EnemyMover : MonoBehaviour
             Vector3 startPosition = transform.position;
             Vector3 endPosition = placetower.transform.position;
             float travelPercent = 0f;
-            //  GameObject fence = GameObject.FindGameObjectWithTag(fenceTag);
+
+
+            GameObject fence = GameObject.FindGameObjectWithTag(fenceTag);
+
 
             transform.LookAt(endPosition);
-
+            if (fence != null && Vector3.Distance(transform.position, fence.transform.position) <= range)
+            {
+                GetComponent<Animator>().SetBool("Attack", true);
+                GetComponent<Animator>().SetBool("RUN", false);
+            }
 
 
 
             while (GetComponent<Animator>().GetBool("Attack"))
             {
-                GameObject fence = GameObject.FindGameObjectWithTag(fenceTag);
-
-                //  if (fence != null)
-                //  {
-                // float fenceDistance = Vector3.Distance(transform.position, fence.transform.position);
-                //  yield return new WaitForEndOfFrame();
-                if (fence == null)
+                if (fence != null && Vector3.Distance(transform.position, fence.transform.position) >= range || fence == null)
                 {
                     GetComponent<Animator>().SetBool("Attack", false);
                     GetComponent<Animator>().SetBool("RUN", true);
                 }
-
-
-                //   }
-
                 yield return new WaitForEndOfFrame();
             }
+
+
+
 
 
             while (travelPercent < 1f)
             {
                 travelPercent += Time.deltaTime * speed;
                 transform.position = Vector3.Lerp(startPosition, endPosition, travelPercent);
+                GetComponent<Animator>().SetBool("Attack", false);
+                GetComponent<Animator>().SetBool("RUN", true);
                 yield return new WaitForEndOfFrame();
             }
 
