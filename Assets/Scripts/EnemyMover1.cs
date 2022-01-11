@@ -10,6 +10,9 @@ public class EnemyMover1 : MonoBehaviour
 
     Enemy enemy;
     Fence fence;
+
+
+    public string fenceTag = "Fence";
     private void OnEnable()
     {
         FindPath();
@@ -69,6 +72,7 @@ public class EnemyMover1 : MonoBehaviour
 
             transform.LookAt(endPosition);
 
+            GameObject fence = GameObject.FindGameObjectWithTag(fenceTag);
 
             if (fence != null && Vector3.Distance(transform.position, fence.transform.position) < range)
             {
@@ -98,6 +102,8 @@ public class EnemyMover1 : MonoBehaviour
             {
                 travelPercent += Time.deltaTime * speed;
                 transform.position = Vector3.Lerp(startPosition, endPosition, travelPercent);
+                GetComponent<Animator>().SetBool("Attack", false);
+                GetComponent<Animator>().SetBool("RUN", true);
                 yield return new WaitForEndOfFrame();
             }
         }

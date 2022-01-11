@@ -13,7 +13,7 @@ public class EnemyHealth : MonoBehaviour
 
     public int currentHitPoints = 0;
 
-    private void Awake()
+    private void OnEnable()
     {
         currentHitPoints = maxHitPoints;
     }
@@ -25,6 +25,7 @@ public class EnemyHealth : MonoBehaviour
     private void Start()
     {
         enemy = GetComponent<Enemy>();
+
 
     }
 

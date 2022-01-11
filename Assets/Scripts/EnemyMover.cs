@@ -91,6 +91,7 @@ public class EnemyMover : MonoBehaviour
 
 
             transform.LookAt(endPosition);
+
             if (fence != null && Vector3.Distance(transform.position, fence.transform.position) < range)
             {
 
