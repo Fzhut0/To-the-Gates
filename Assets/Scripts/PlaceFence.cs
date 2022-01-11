@@ -34,7 +34,7 @@ public class PlaceFence : MonoBehaviour
         ResourcesBank bank = FindObjectOfType<ResourcesBank>();
         if (fencePlaceableLeft == true && bank.CurrentBalance >= cost)
         {
-            Instantiate(fencePrefab.gameObject, transform.position, Quaternion.identity);
+            Instantiate(fencePrefab.gameObject, transform.position, Quaternion.LookRotation(Vector3.back));
             bank.Withdraw(cost);
         }
         fencePlaceableLeft = false;

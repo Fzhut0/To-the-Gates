@@ -21,7 +21,7 @@ public class EnemyMover : MonoBehaviour
 
         FindPath();
         ReturnToStart();
-        GetComponent<Animator>().SetBool("RUN", true);
+        // GetComponent<Animator>().SetBool("RUN", true);
         StartCoroutine(FollowPath());
     }
 
@@ -38,6 +38,7 @@ public class EnemyMover : MonoBehaviour
         {
             enemy.enabled = true;
         }
+
     }
 
 
@@ -73,11 +74,7 @@ public class EnemyMover : MonoBehaviour
 
     }
 
-    //   private void OnTriggerEnter(Collider other)
-    //   {
-    //     GetComponent<Animator>().SetBool("RUN", false);
-    //     GetComponent<Animator>().SetBool("Attack", true);
-    //  }
+
 
 
 
@@ -94,9 +91,12 @@ public class EnemyMover : MonoBehaviour
 
 
             transform.LookAt(endPosition);
-            if (fence != null && Vector3.Distance(transform.position, fence.transform.position) <= range)
+            if (fence != null && Vector3.Distance(transform.position, fence.transform.position) < range)
             {
+
                 GetComponent<Animator>().SetBool("Attack", true);
+                gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
                 GetComponent<Animator>().SetBool("RUN", false);
             }
 
@@ -104,9 +104,10 @@ public class EnemyMover : MonoBehaviour
 
             while (GetComponent<Animator>().GetBool("Attack"))
             {
-                if (fence != null && Vector3.Distance(transform.position, fence.transform.position) >= range || fence == null)
+                if (fence != null && Vector3.Distance(transform.position, fence.transform.position) > range || fence == null)
                 {
                     GetComponent<Animator>().SetBool("Attack", false);
+                    gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                     GetComponent<Animator>().SetBool("RUN", true);
                 }
                 yield return new WaitForEndOfFrame();

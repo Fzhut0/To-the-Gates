@@ -12,7 +12,7 @@ public class TargetLocator : MonoBehaviour
     Enemy targetEnemy;
 
     Transform target;
-    GameObject mene;
+
 
 
 
@@ -47,7 +47,8 @@ public class TargetLocator : MonoBehaviour
         {
             float targetDistance = Vector3.Distance(transform.position, target.position);
 
-            weapon.LookAt(target);
+
+            weapon.LookAt(new Vector3(target.transform.position.x, 4, target.transform.position.z));
             if (targetDistance < range && targetEnemy.enabled)
             {
                 Attack(true);

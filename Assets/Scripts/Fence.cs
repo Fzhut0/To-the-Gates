@@ -37,6 +37,9 @@ public class Fence : MonoBehaviour
         //     Invoke("Death", 2f);
 
 
+
+
+
         Invoke("Death", 1f);
     }
 
@@ -44,7 +47,9 @@ public class Fence : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         StartCoroutine(LosingHealth());
+
     }
+
 
 
     IEnumerator LosingHealth()

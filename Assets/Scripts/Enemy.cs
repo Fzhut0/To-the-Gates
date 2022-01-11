@@ -32,4 +32,6 @@ public class Enemy : MonoBehaviour
         bank.Withdraw(resourcesWithdraw);
     }
 
+
+
 }
