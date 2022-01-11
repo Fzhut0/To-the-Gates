@@ -6,9 +6,10 @@ public class EnemyMover1 : MonoBehaviour
 {
     [SerializeField] List<PlaceTower> path = new List<PlaceTower>();
     [SerializeField] [Range(0f, 5f)] float speed = 1f;
+    [SerializeField] float range = 3f;
 
     Enemy enemy;
-
+    Fence fence;
     private void OnEnable()
     {
         FindPath();
@@ -67,6 +68,30 @@ public class EnemyMover1 : MonoBehaviour
             float travelPercent = 0f;
 
             transform.LookAt(endPosition);
+
+
+            if (fence != null && Vector3.Distance(transform.position, fence.transform.position) < range)
+            {
+
+                GetComponent<Animator>().SetBool("Attack", true);
+                gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
+                GetComponent<Animator>().SetBool("RUN", false);
+            }
+
+
+
+            while (GetComponent<Animator>().GetBool("Attack"))
+            {
+                if (fence != null && Vector3.Distance(transform.position, fence.transform.position) > range || fence == null)
+                {
+                    GetComponent<Animator>().SetBool("Attack", false);
+                    gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                    GetComponent<Animator>().SetBool("RUN", true);
+                }
+                yield return new WaitForEndOfFrame();
+            }
+
 
 
             while (travelPercent < 1f)
