@@ -105,10 +105,13 @@ public class TargetLocator : MonoBehaviour
 
         switch (morale)
         {
-            case 55:
+            case 75:
                 range = 30f;
                 break;
-            case 60:
+            case 150:
+                range = 32f;
+                break;
+            case 250:
                 range = 35f;
                 break;
             default:

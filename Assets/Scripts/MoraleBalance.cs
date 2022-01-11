@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoraleBalance : MonoBehaviour
 {
     [SerializeField] int currentMorale;
-    [SerializeField] int startingMorale = 50;
+    [SerializeField] int startingMorale = 10;
 
     public int CurrentMorale { get { return currentMorale; } }
 
