@@ -5,7 +5,7 @@ using UnityEngine;
 public class TargetLocator : MonoBehaviour
 {
     [SerializeField] Transform weapon;
-    [SerializeField] public float range = 15f;
+    [SerializeField] public float range = 25f;
 
 
     [SerializeField] ParticleSystem particleShoot;
@@ -39,7 +39,6 @@ public class TargetLocator : MonoBehaviour
         AimWeapon();
 
         IncreaseRange();
-
 
     }
 
@@ -105,20 +104,35 @@ public class TargetLocator : MonoBehaviour
     {
         int morale = FindObjectOfType<MoraleBalance>().CurrentMorale;
 
-        switch (morale)
+
+
+        if (morale >= 35)
         {
-            case 50:
-                range = 30f;
-                break;
-            case 100:
-                range = 32f;
-                break;
-            case 250:
-                range = 35f;
-                break;
-            default:
-                break;
+            range = 30f;
         }
+        if (morale >= 100)
+        {
+            range = 32f;
+        }
+        if (morale >= 200)
+        {
+            range = 35f;
+        }
+
+
+        /*  switch (morale)
+          {
+              case 50:
+                  range = 30f;
+                  break;
+              case 60:
+                  range = 32f;
+                  break;
+              case 250:
+                  range = 35f;
+                  break;
+          }
+        */
     }
 
     void OnDrawGizmosSelected()

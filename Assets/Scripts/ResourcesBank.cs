@@ -7,6 +7,7 @@ public class ResourcesBank : MonoBehaviour
 {
     [SerializeField] int currentBalance;
     [SerializeField] int startingBalance = 150;
+    [SerializeField] GameObject gameOver;
 
     [SerializeField] TextMeshProUGUI displayBalance;
 
@@ -18,7 +19,10 @@ public class ResourcesBank : MonoBehaviour
         UpdateDisplay();
     }
 
-
+    private void Update()
+    {
+        RestartGame();
+    }
     public void Deposit(int amount)
     {
         currentBalance += Mathf.Abs(amount);
@@ -34,6 +38,17 @@ public class ResourcesBank : MonoBehaviour
     private void UpdateDisplay()
     {
         displayBalance.text = "Resources: " + currentBalance;
+    }
+
+    void RestartGame()
+    {
+        if (currentBalance <= -50)
+        {
+            gameOver.SetActive(true);
+            Time.timeScale = 0f;
+        }
+
+
     }
 
 }

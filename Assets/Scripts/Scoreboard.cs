@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 public class Scoreboard : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI enemyHealth;
@@ -43,6 +44,7 @@ public class Scoreboard : MonoBehaviour
         if (currentTurretRange == true)
         {
             turretRange.text = "Turret range:" + currentTurretRange.range;
+
         }
     }
 

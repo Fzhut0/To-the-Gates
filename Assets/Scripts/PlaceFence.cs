@@ -12,7 +12,6 @@ public class PlaceFence : MonoBehaviour
     [SerializeField] bool fencePlaceableFw = true;
 
 
-
     void Start()
     {
 

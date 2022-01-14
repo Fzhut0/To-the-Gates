@@ -13,6 +13,7 @@ public class EnemySpawner : MonoBehaviour
     private void Awake()
     {
         PopulatePool();
+
     }
 
     void PopulatePool()

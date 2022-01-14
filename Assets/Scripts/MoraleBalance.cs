@@ -43,7 +43,7 @@ public class MoraleBalance : MonoBehaviour
 
     void AnnouceNode()
     {
-        if (currentMorale >= 75)
+        if (currentMorale >= 60)
         {
             nodeSpawnAnnoucer.SetActive(true);
         }

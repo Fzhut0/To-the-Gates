@@ -11,10 +11,10 @@ public class PlaceTower : MonoBehaviour
     [SerializeField] Material nodeMaterial;
 
     [SerializeField] int cost = 50;
-    [SerializeField] int nodeSpawn = 75;
+    [SerializeField] int nodeSpawn = 60;
 
     MeshRenderer mRenderer;
-    [SerializeField] bool isPlaceable = true;
+    [SerializeField] public bool isPlaceable = true;
     [SerializeField] bool isNode = false;
 
 

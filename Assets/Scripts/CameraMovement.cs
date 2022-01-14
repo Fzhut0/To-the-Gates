@@ -57,7 +57,7 @@ public class CameraMovement : MonoBehaviour
         transform.position = pos;
     }
 
-    void QuitApp()
+    public void QuitApp()
     {
         if (Input.GetKey(KeyCode.Escape))
         {
@@ -75,6 +75,10 @@ public class CameraMovement : MonoBehaviour
         {
             scoreBoard.SetActive(false);
         }
+    }
 
+    public void QuitAppBtn()
+    {
+        Application.Quit();
     }
 }
