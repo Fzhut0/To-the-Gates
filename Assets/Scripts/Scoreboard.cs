@@ -9,7 +9,7 @@ public class Scoreboard : MonoBehaviour
     [SerializeField] TextMeshProUGUI turretRange;
 
 
-
+    [SerializeField] GameObject EnemySpawner;
     EnemyHealth enemyHitPoints;
     TargetLocator currentTurretRange;
 
@@ -29,7 +29,7 @@ public class Scoreboard : MonoBehaviour
 
     void EnemyHitPoints()
     {
-        enemyHitPoints = FindObjectOfType<EnemyHealth>();
+        enemyHitPoints = EnemySpawner.GetComponentInChildren<EnemyHealth>();
         if (enemyHitPoints == true)
         {
             enemyHealth.text = "Enemy HP:" + enemyHitPoints.maxHitPoints;
