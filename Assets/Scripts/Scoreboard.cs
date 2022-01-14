@@ -16,8 +16,6 @@ public class Scoreboard : MonoBehaviour
 
     private void Start()
     {
-        enemyHitPoints = FindObjectOfType<EnemyHealth>();
-
 
     }
 
@@ -31,9 +29,10 @@ public class Scoreboard : MonoBehaviour
 
     void EnemyHitPoints()
     {
+        enemyHitPoints = FindObjectOfType<EnemyHealth>();
         if (enemyHitPoints == true)
         {
-            enemyHealth.text = "Enemy HP =" + enemyHitPoints.maxHitPoints;
+            enemyHealth.text = "Enemy HP:" + enemyHitPoints.maxHitPoints;
         }
     }
 
@@ -43,7 +42,7 @@ public class Scoreboard : MonoBehaviour
         currentTurretRange = FindObjectOfType<TargetLocator>();
         if (currentTurretRange == true)
         {
-            turretRange.text = "Turret range =" + currentTurretRange.range;
+            turretRange.text = "Turret range:" + currentTurretRange.range;
         }
     }
 
