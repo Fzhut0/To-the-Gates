@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] int resourcesReward = 25;
     [SerializeField] int resourcesWithdraw = 50;
     [SerializeField] int moraleReward = 1;
+    [SerializeField] int moraleDecrease = 5;
 
     ResourcesBank bank;
     MoraleBalance morale;
@@ -30,6 +31,9 @@ public class Enemy : MonoBehaviour
     {
         if (bank == null) { return; }
         bank.Withdraw(resourcesWithdraw);
+
+        if (morale == null) { return; }
+        morale.DecreaseMorale(moraleDecrease);
     }
 
 

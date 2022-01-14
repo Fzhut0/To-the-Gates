@@ -5,7 +5,8 @@ using UnityEngine;
 public class TargetLocator : MonoBehaviour
 {
     [SerializeField] Transform weapon;
-    [SerializeField] float range = 15f;
+    [SerializeField] public float range = 15f;
+
 
     [SerializeField] ParticleSystem particleShoot;
 
@@ -38,6 +39,7 @@ public class TargetLocator : MonoBehaviour
         AimWeapon();
 
         IncreaseRange();
+
 
     }
 
@@ -105,10 +107,10 @@ public class TargetLocator : MonoBehaviour
 
         switch (morale)
         {
-            case 75:
+            case 50:
                 range = 30f;
                 break;
-            case 150:
+            case 100:
                 range = 32f;
                 break;
             case 250:

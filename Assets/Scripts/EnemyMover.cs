@@ -21,13 +21,12 @@ public class EnemyMover : MonoBehaviour
 
         FindPath();
         ReturnToStart();
-        // GetComponent<Animator>().SetBool("RUN", true);
         StartCoroutine(FollowPath());
     }
 
     private void Start()
     {
-        health = GetComponent<EnemyHealth>();
+
         enemy = GetComponent<Enemy>();
 
     }
@@ -47,7 +46,7 @@ public class EnemyMover : MonoBehaviour
     {
         path.Clear();
 
-        GameObject parent = GameObject.FindGameObjectWithTag("Path");
+        GameObject parent = GameObject.FindGameObjectWithTag("Path2");
 
         foreach (Transform child in parent.transform)
         {
@@ -86,15 +85,12 @@ public class EnemyMover : MonoBehaviour
             Vector3 endPosition = placetower.transform.position;
             float travelPercent = 0f;
 
+            transform.LookAt(endPosition);
 
             GameObject fence = GameObject.FindGameObjectWithTag(fenceTag);
 
-
-            transform.LookAt(endPosition);
-
             if (fence != null && Vector3.Distance(transform.position, fence.transform.position) < range)
             {
-
                 GetComponent<Animator>().SetBool("Attack", true);
                 gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
@@ -108,7 +104,7 @@ public class EnemyMover : MonoBehaviour
                 if (fence != null && Vector3.Distance(transform.position, fence.transform.position) > range || fence == null)
                 {
                     GetComponent<Animator>().SetBool("Attack", false);
-                    gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                    gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                     GetComponent<Animator>().SetBool("RUN", true);
                 }
                 yield return new WaitForEndOfFrame();

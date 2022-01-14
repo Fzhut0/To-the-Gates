@@ -6,6 +6,8 @@ public class CameraMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] Vector2 panLimit;
+    [SerializeField] GameObject scoreBoard;
+
 
 
 
@@ -20,7 +22,8 @@ public class CameraMovement : MonoBehaviour
     void Update()
     {
         MoveCamera();
-
+        QuitApp();
+        StatBoard();
     }
 
 
@@ -54,6 +57,24 @@ public class CameraMovement : MonoBehaviour
         transform.position = pos;
     }
 
+    void QuitApp()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
 
+    void StatBoard()
+    {
+        if (Input.GetKey(KeyCode.Tab))
+        {
+            scoreBoard.SetActive(true);
+        }
+        else
+        {
+            scoreBoard.SetActive(false);
+        }
 
+    }
 }

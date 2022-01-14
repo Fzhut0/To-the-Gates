@@ -8,11 +8,14 @@ public class PlaceTower : MonoBehaviour
     [SerializeField] GameObject placedPrefab;
     [SerializeField] Material originalMaterial;
     [SerializeField] Material overMaterial;
+    [SerializeField] Material nodeMaterial;
 
     [SerializeField] int cost = 50;
+    [SerializeField] int nodeSpawn = 75;
 
     MeshRenderer mRenderer;
     [SerializeField] bool isPlaceable = true;
+    [SerializeField] bool isNode = false;
 
 
     private void Start()
@@ -21,23 +24,35 @@ public class PlaceTower : MonoBehaviour
         originalMaterial = mRenderer.material;
     }
 
+
     private void OnMouseDown()
     {
         PutTower();
+        AwardNode();
     }
 
     void OnMouseOver()
     {
         ResourcesBank bank = FindObjectOfType<ResourcesBank>();
+        MoraleBalance morale = FindObjectOfType<MoraleBalance>();
         if (isPlaceable == true && bank.CurrentBalance >= cost)
         {
             mRenderer.material = overMaterial;
+        }
+        if (isNode == true && morale.CurrentMorale >= nodeSpawn)
+        {
+            isPlaceable = false;
+            mRenderer.material = nodeMaterial;
         }
     }
 
     private void OnMouseExit()
     {
         if (isPlaceable == true)
+        {
+            mRenderer.material = originalMaterial;
+        }
+        if (isNode == true)
         {
             mRenderer.material = originalMaterial;
         }
@@ -53,6 +68,18 @@ public class PlaceTower : MonoBehaviour
             Instantiate(placedPrefab.gameObject, transform.position, Quaternion.identity);
         }
         isPlaceable = false;
+    }
+
+    void AwardNode()
+    {
+        MoraleBalance morale = FindObjectOfType<MoraleBalance>();
+        ResourcesBank bank = FindObjectOfType<ResourcesBank>();
+
+        if (isNode == true && morale.CurrentMorale >= nodeSpawn)
+        {
+            bank.Deposit(75);
+        }
+        isNode = false;
     }
 
 }

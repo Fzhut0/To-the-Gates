@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EnemyHealth : MonoBehaviour
 {
 
-    [SerializeField] int maxHitPoints = 2;
+    [SerializeField] public int maxHitPoints = 2;
     [SerializeField] int difficultyRamp = 1;
+
 
     EnemyMover enemyMover;
     Enemy enemy;
@@ -25,9 +27,8 @@ public class EnemyHealth : MonoBehaviour
     private void Start()
     {
         enemy = GetComponent<Enemy>();
-
-
     }
+
 
     void ProcessHit()
     {
