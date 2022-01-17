@@ -6,6 +6,7 @@ public class TargetLocator : MonoBehaviour
 {
     [SerializeField] Transform weapon;
     [SerializeField] public float range = 25f;
+    [SerializeField] float enemyHeight = 10f;
 
 
     [SerializeField] ParticleSystem particleShoot;
@@ -49,7 +50,7 @@ public class TargetLocator : MonoBehaviour
             float targetDistance = Vector3.Distance(transform.position, target.position);
 
 
-            weapon.LookAt(new Vector3(target.transform.position.x, 4, target.transform.position.z));
+            weapon.LookAt(new Vector3(target.transform.position.x, enemyHeight, target.transform.position.z));
             if (targetDistance < range && targetEnemy.enabled)
             {
                 Attack(true);
@@ -103,7 +104,6 @@ public class TargetLocator : MonoBehaviour
     void IncreaseRange()
     {
         int morale = FindObjectOfType<MoraleBalance>().CurrentMorale;
-
 
 
         if (morale >= 35)

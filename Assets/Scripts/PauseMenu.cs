@@ -21,12 +21,18 @@ public class PauseMenu : MonoBehaviour
             pauseMenu.SetActive(true);
             Time.timeScale = 0f;
         }
+        /*   else
+           {
+               pauseMenu.SetActive(false);
+               Time.timeScale = 1f;
+           }
+        */
     }
+
 
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
-
         Time.timeScale = 1f;
     }
 
@@ -34,8 +40,15 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
-
     }
 
+    public void LostLevelSwitch()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+
 }
+
+
+

@@ -20,19 +20,15 @@ public class Enemy : MonoBehaviour
     }
     public void RewardResources()
     {
-        if (bank == null) { return; }
+        if (bank == null || morale == null) { return; }
         bank.Deposit(resourcesReward);
-
-        if (morale == null) { return; }
         morale.IncreaseMorale(moraleReward);
     }
 
     public void WithdrawResources()
     {
-        if (bank == null) { return; }
+        if (bank == null || morale == null) { return; }
         bank.Withdraw(resourcesWithdraw);
-
-        if (morale == null) { return; }
         morale.DecreaseMorale(moraleDecrease);
     }
 

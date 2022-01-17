@@ -79,7 +79,6 @@ public class EnemyMover1 : MonoBehaviour
 
                 GetComponent<Animator>().SetBool("Attack", true);
                 gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-
                 GetComponent<Animator>().SetBool("RUN", false);
             }
 

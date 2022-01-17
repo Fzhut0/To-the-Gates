@@ -7,13 +7,17 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] Vector2 panLimit;
     [SerializeField] GameObject scoreBoard;
-
+    [SerializeField] GameObject fadeOutPanel;
 
 
 
     private void Start()
     {
         Time.timeScale = 1f;
+        if (!fadeOutPanel.activeSelf)
+        {
+            fadeOutPanel.SetActive(true);
+        }
 
 
     }
@@ -67,18 +71,15 @@ public class CameraMovement : MonoBehaviour
 
     void StatBoard()
     {
-        if (Input.GetKey(KeyCode.Tab))
-        {
-            scoreBoard.SetActive(true);
-        }
-        else
-        {
-            scoreBoard.SetActive(false);
-        }
+
+        scoreBoard.SetActive(Input.GetKey(KeyCode.Tab));
+
     }
 
     public void QuitAppBtn()
     {
         Application.Quit();
     }
+
+
 }
