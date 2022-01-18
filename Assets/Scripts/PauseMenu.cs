@@ -19,14 +19,10 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             pauseMenu.SetActive(true);
+
             Time.timeScale = 0f;
         }
-        /*   else
-           {
-               pauseMenu.SetActive(false);
-               Time.timeScale = 1f;
-           }
-        */
+
     }
 
 
@@ -34,6 +30,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
+
     }
 
     public void RestartGame()
@@ -47,6 +44,10 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 
 }
 

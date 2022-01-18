@@ -5,7 +5,7 @@ using TMPro;
 
 public class ResourcesBank : MonoBehaviour
 {
-    [SerializeField] int currentBalance;
+    [SerializeField] public int currentBalance;
     [SerializeField] int startingBalance = 150;
     [SerializeField] GameObject gameOver;
 
@@ -42,7 +42,7 @@ public class ResourcesBank : MonoBehaviour
 
     void RestartGame()
     {
-        if (currentBalance <= -50)
+        if (currentBalance <= -10)
         {
             gameOver.SetActive(true);
             Time.timeScale = 0f;

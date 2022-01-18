@@ -16,7 +16,10 @@ public class PlaceFence : MonoBehaviour
 
     private void OnMouseDown()
     {
-        PutFence();
+        if (Time.timeScale == 1f)
+        {
+            PutFence();
+        }
     }
 
     void PutFence()

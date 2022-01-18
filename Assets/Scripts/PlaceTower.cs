@@ -11,7 +11,7 @@ public class PlaceTower : MonoBehaviour
     [SerializeField] Material nodeMaterial;
 
     [SerializeField] int cost = 50;
-    [SerializeField] int nodeSpawn = 60;
+    [SerializeField] public int nodeSpawn = 60;
 
     MeshRenderer mRenderer;
     [SerializeField] public bool isPlaceable = true;
@@ -22,12 +22,22 @@ public class PlaceTower : MonoBehaviour
     {
         mRenderer = GetComponent<MeshRenderer>();
         originalMaterial = mRenderer.material;
+        GameObject nullTag = GameObject.FindGameObjectWithTag("PutNull");
+        GameObject pauseTag = GameObject.FindGameObjectWithTag("Pause");
     }
 
+    private void Update()
+    {
+
+    }
 
     private void OnMouseDown()
     {
-        PutTower();
+
+        if (Time.timeScale == 1f)
+        {
+            PutTower();
+        }
         AwardNode();
     }
 
@@ -35,11 +45,11 @@ public class PlaceTower : MonoBehaviour
     {
         ResourcesBank bank = FindObjectOfType<ResourcesBank>();
         MoraleBalance morale = FindObjectOfType<MoraleBalance>();
-        if (isPlaceable == true && bank.CurrentBalance >= cost)
+        if (isPlaceable == true && bank.CurrentBalance >= cost && Time.timeScale == 1f)
         {
             mRenderer.material = overMaterial;
         }
-        if (isNode == true && morale.CurrentMorale >= nodeSpawn)
+        if (isNode == true && morale.CurrentMorale >= nodeSpawn && Time.timeScale == 1f)
         {
             isPlaceable = false;
             mRenderer.material = nodeMaterial;
@@ -60,7 +70,11 @@ public class PlaceTower : MonoBehaviour
 
     void PutTower()
     {
+        GameObject nullTag = GameObject.FindGameObjectWithTag("PutNull");
+        GameObject pauseTag = GameObject.FindGameObjectWithTag("Pause");
+
         ResourcesBank bank = FindObjectOfType<ResourcesBank>();
+
         if (isPlaceable == true && bank.CurrentBalance >= cost)
         {
             Instantiate(towerPrefab.gameObject, transform.position, Quaternion.identity);
@@ -68,6 +82,9 @@ public class PlaceTower : MonoBehaviour
             Instantiate(placedPrefab.gameObject, transform.position, Quaternion.identity);
         }
         isPlaceable = false;
+
+
+
     }
 
     void AwardNode()

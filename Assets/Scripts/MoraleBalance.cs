@@ -15,6 +15,8 @@ public class MoraleBalance : MonoBehaviour
     [SerializeField] GameObject winPanel;
     public int CurrentMorale { get { return currentMorale; } }
 
+    [SerializeField] int nodeSpawn;
+
     private void Awake()
     {
         currentMorale = startingMorale;
@@ -47,7 +49,7 @@ public class MoraleBalance : MonoBehaviour
 
     void AnnouceNode()
     {
-        if (currentMorale >= 60)
+        if (currentMorale >= nodeSpawn)
         {
             nodeSpawnAnnoucer.SetActive(true);
         }

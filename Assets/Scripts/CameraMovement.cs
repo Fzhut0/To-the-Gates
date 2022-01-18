@@ -10,7 +10,6 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] GameObject fadeOutPanel;
 
 
-
     private void Start()
     {
         Time.timeScale = 1f;
@@ -18,8 +17,6 @@ public class CameraMovement : MonoBehaviour
         {
             fadeOutPanel.SetActive(true);
         }
-
-
     }
 
 
