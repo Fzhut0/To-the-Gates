@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2776829870122083886
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.name
+      value: PolybrushMesh-285788
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[0].rgba
+      value: 16646144
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[1].rgba
+      value: 16580608
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[2].rgba
+      value: 16646144
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[3].rgba
+      value: 16580608
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[4].rgba
+      value: 319218432
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[5].rgba
+      value: 353229568
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[6].rgba
+      value: 319218432
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[7].rgba
+      value: 353229568
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[8].rgba
+      value: 16646144
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[9].rgba
+      value: 16580608
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[10].rgba
+      value: 319218432
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[11].rgba
+      value: 353229568
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[12].rgba
+      value: 319218432
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[13].rgba
+      value: 16646144
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[14].rgba
+      value: 16580608
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[15].rgba
+      value: 353229568
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[16].rgba
+      value: 16580608
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[17].rgba
+      value: 16580608
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[18].rgba
+      value: 353229568
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[19].rgba
+      value: 353229568
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[20].rgba
+      value: 319218432
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[21].rgba
+      value: 319218432
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[22].rgba
+      value: 16646144
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420127306539340875, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_PolyMesh.colors.Array.data[23].rgba
+      value: 16646144
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612662512876321089, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612662512876321089, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612662512876321089, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612662512876321089, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612662512876321089, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612662512876321089, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612662512876321089, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612662512876321089, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612662512876321089, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612662512876321089, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612662512876321089, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565393577769726133, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_Name
+      value: PathSmall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8285460667638462886, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 864931963403392904, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+    - {fileID: 329525340298609525, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 56f8f250a8fa07c4c8784b680bc154b6, type: 3}
